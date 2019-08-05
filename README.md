@@ -1,7 +1,7 @@
 # SayCheese v1.0
-Take webcam shots from target just sending a malicious link
+Tome fotos de la cámara web simplemente enviando un enlace malicioso
 
-![cheese](https://user-images.githubusercontent.com/34893261/56869077-e5714d80-69d1-11e9-8ce2-29a254021890.jpg)
+![cheese](https://i.ibb.co/X2QK7zQ/21.gif)
 
 # How it works?
 <p>The tool generates a malicious HTTPS page using Serveo or Ngrok Port Forwarding methods, and a javascript code to cam requests using MediaDevices.getUserMedia. </p>
