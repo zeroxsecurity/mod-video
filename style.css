@@ -1,0 +1,77 @@
+body, div, p {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+.wrapper video {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .video-playback {
+  height: calc(100% - 78px);
+  display: none;
+}
+.wrapper .controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.wrapper .controls .btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  border: 3px solid white;
+  background-color: black;
+  color: white;
+  margin: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper .controls .record-btn {
+  display: flex;
+}
+.wrapper .controls .progress-btn, .wrapper .controls .upload-btn, .wrapper .controls .download-btn, .wrapper .controls .stop-btn {
+  display: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.go-back-btn, .toggle-cam-btn {
+  position: absolute;
+  top: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.go-back-btn {
+  left: 20px;
+  display: none;
+}
+
+.toggle-cam-btn {
+  right: 20px;
+}
+
+.file-input-video {
+  display: none;
+}

