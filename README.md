@@ -1,4 +1,4 @@
-# SayCheese v1.0
+# MOD v1.0
 Tome fotos de la cámara web simplemente enviando un enlace malicioso
 
 ![cheese](https://i.ibb.co/X2QK7zQ/21.gif)
