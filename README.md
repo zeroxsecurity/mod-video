@@ -22,7 +22,7 @@ https://github.com/HORUS-HACK/mod-video.git
 cd mod-video
 bash horus.sh
 ```
-[![Alt text for your video](http://img.youtube.com/vi/T-D1KVIuvjA/0.jpg)](https://youtu.be/RseS5t7TOXA)
+[![Alt text for your video](https://i.ibb.co/jLpgqDw/Screenshot-1.png)](https://youtu.be/RseS5t7TOXA)
 
 
 
