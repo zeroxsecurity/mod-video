@@ -27,5 +27,4 @@ bash horus.sh
 
 
  
- LO INVITAMOS A TENER NUESTRA APP https://youtu.be/RseS5t7TOXA  Y A PASAR POR EL CANAL Y EL TELEGRAM DE IVAM3 CINDERELLA
- https://t.me/Ivam3by_Cinderella
+ LO INVITAMOS A TENER NUESTRA APP https://youtu.be/RseS5t7TOXA
