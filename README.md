@@ -22,9 +22,5 @@ https://github.com/HORUS-HACK/mod-video.git
 cd mod-video
 bash horus.sh
 ```
-[![Alt text for your video](https://i.ibb.co/jLpgqDw/Screenshot-1.png)](https://youtu.be/RseS5t7TOXA)
 
 
-
- 
- LO INVITAMOS A TENER NUESTRA APP https://youtu.be/RseS5t7TOXA
